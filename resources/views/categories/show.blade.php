@@ -59,7 +59,11 @@
                                 </h5>
 
                                 <a href="#" class="btn btn-primary btn-block" data-package-url="{{ route('shop.packages.show', $package) }}">
-                                    {{ trans('shop::messages.buy') }}
+                                    @if($package->isSubscription())
+                                        {{ trans('shop::messages.actions.subscribe') }}
+                                    @else
+                                        {{ trans('shop::messages.buy') }}
+                                    @endif
                                 </a>
                             </div>
                         </div>
